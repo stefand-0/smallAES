@@ -18,3 +18,8 @@ Verify the design using Icarus Verilog:
 iverilog -g2012 -o aes_sim src/aes_pkg.sv src/smallAES.sv tb/tb_smallAES.sv
 vvp aes_sim
 
+## Synthesis layout, replace $(X) with your own details
+```bash
+yosys -p "read_verilog -sv $(SRC); synth_gowin -top smallAES -json smallAES.json"
+	nextpnr-himbaechel --device $(DEVICE) --json smallAES.json --cst $(CST) --write smallAES_out.json
+
