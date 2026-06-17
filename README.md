@@ -22,6 +22,6 @@ vvp aes_sim
 ```bash
 yosys -p "read_verilog -sv $(SRC); synth_gowin -top smallAES -json smallAES.json"
 	nextpnr-himbaechel --device $(DEVICE) --json smallAES.json --cst $(CST) --write smallAES_out.json
-
+```
 # Licensed 
 under the Solderpad Hardware License, v0.51. See the LICENSE file for details.
