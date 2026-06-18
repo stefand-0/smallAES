@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
+// hex madness.
 package aes_pkg;
 
     localparam logic [7:0] SBOX [0:255] = '{
