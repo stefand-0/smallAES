@@ -8,7 +8,7 @@ A super-tiny, iterative AES-128 encryption core designed for FPGA implementation
 ## Design Highlights
 * **Iterative Datapath:** Uses a single round datapath to ensure minimal footprint.
 * **SystemVerilog:** Built using modern IEEE 1800-2012 constructs.
-* **Verification:** Includes a SystemVerilog.
+* **Verification:** Includes a SystemVerilog testbench.
 * **Portable:** Synthesis-ready for Gowin, Lattice, and Xilinx toolchains.
 
 ## Simulation
