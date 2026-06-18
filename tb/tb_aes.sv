@@ -14,3 +14,50 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+`timescale 1ns/1ps
+
+module tb_aes;
+
+    logic         clk;
+    logic         rst;
+    logic         start;
+    logic [127:0] data_in;
+    logic [127:0] key_in;
+    logic [127:0] data_out;
+    logic         done;
+
+    smallAES uut (
+        .clk(clk),
+        .rst(rst),
+        .start(start),
+        .data_in(data_in),
+        .key_in(key_in),
+        .data_out(data_out),
+        .done(done)
+    );
+
+    always #5 clk = ~clk;
+
+    initial begin
+        clk = 0;
+        rst = 1;
+        start = 0;
+        data_in = 128'h00112233445566778899aabbccddeeff;
+        key_in = 128'h000102030405060708090a0b0c0d0e0f;
+
+        #20;
+        rst = 0;
+        #10;
+        start = 1;
+        #10;
+        start = 0;
+
+        @ (posedge done);
+        #20;
+        $display("Data Out: %h", data_out);
+        $finish;
+    end
+
+endmodule
+
