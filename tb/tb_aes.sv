@@ -58,6 +58,6 @@ module tb_aes;
         $display("Data Out: %h", data_out);
         $finish;
     end
-
+// out should be 69c4e0d86a7b0430d8cdb78070b4c55a
 endmodule
 
