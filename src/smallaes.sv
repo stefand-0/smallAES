@@ -93,7 +93,7 @@ module smallAES (
         endcase
     end
 
-    assign data_out = state_reg;
+    assign data_out = {>>{state_reg}};
     assign done     = (current_state == DONE_STATE);
 
 endmodule
