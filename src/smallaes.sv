@@ -76,8 +76,12 @@ module smallAES (
             end
             
             INITIAL_ADD_KEY: begin
-                state_next = data_in ^ key_in; 
-            end
+    for (int c = 0; c < 4; c++) begin
+        for (int r = 0; r < 4; r++) begin
+            state_next[c][r] = data_in[(127 - (c*32 + r*8)) -: 8] ^ key_in[(127 - (c*32 + r*8)) -: 8];
+        end
+    end
+end
             
             PROCESS_ROUND: begin
                 if (round_count < 10) begin
