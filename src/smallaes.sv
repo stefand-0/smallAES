@@ -98,7 +98,7 @@ end
         endcase
     end
 
-    assign data_out = {>>{state_reg}};
+    assign data_out = {>>{state_reg}}; // flat
     assign done     = (current_state == DONE_STATE);
 
 endmodule
